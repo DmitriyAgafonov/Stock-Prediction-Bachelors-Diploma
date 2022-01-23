@@ -45,9 +45,13 @@ We will create Fourier transforms in order to generalize several long- and short
 ## Reduce dimensions
 We use **Principal Component Analysis (PCA)** in order to reduce the dimensionality of the created features and to create the new components to explain maximum of the variance.
 
-## Train/test set formation
+## LSTM Modelling
+### Train/test set formation
 Performing stationarization and time series stationarity (math expectation, variance and lack of autocorellation are constant) test - **Dickey-Fuller Test**
 Since we use **sequence-to-sequence LSTM model** we shound transform data by: 1) shift back objective function with respect to independent variables; 2) iteratively move window in direction of timeline - create batches for each iteration. We will predict price change in next 30 days based on previous 60 days.
+
+---
+### LSTM architecture
 Hyperparameter tuning gave **LSTM architecture:**
 - 2 hidden layers
 - each 120 nodes
@@ -56,6 +60,8 @@ Hyperparameter tuning gave **LSTM architecture:**
 - 100 epochs
 - batch size 32
 
+---
+### Prediction results
 Predicted data transformed back into time series and vizualized:
 
 ![img1.png](https://github.com/DmitriyAgafonov/Stock-Prediction-Bachelors-Diploma/blob/master/imgs/img1.png)
@@ -64,6 +70,7 @@ Metric evaluation:
 
 ![img2.png](https://github.com/DmitriyAgafonov/Stock-Prediction-Bachelors-Diploma/blob/master/imgs/img2.png)
 
+## Dash application
 **Dash** is a Python framework based on Flask and Plotly that used for web application development. Dash is open source and runs in a web browser. Graphs are interactive, the user can interact with time periods and scale them.
 
 ![img3.png](https://github.com/DmitriyAgafonov/Stock-Prediction-Bachelors-Diploma/blob/master/imgs/img3.png)
